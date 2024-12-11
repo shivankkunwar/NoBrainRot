@@ -86,7 +86,7 @@ export const useApps = () => {
           : 'tel://';
         break;
       
-      case 'Youtube':
+      case 'youtube':
         url = Platform.OS === 'android' 
           ? 'vnd.youtube:' 
           : 'youtube:';
@@ -119,11 +119,10 @@ export const useApps = () => {
     try {
 
       const canOpen = await Linking.canOpenURL(url);
-      console.log(canOpen)
+      
       if (canOpen) {
         await Linking.openURL(url);
       } else {
-        console.log(url)
         console.log(`Cannot open ${appType} app`);
        
       }
